@@ -100,7 +100,7 @@ function displayWeather(data) {
     wind.textContent = `${(data.wind.speed * 3.6).toFixed(1)} km/h`;
     windDirection.textContent = getWindDirection(data.wind.deg);
     humidity.textContent = `${data.main.humidity}%`;
-    mainIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    mainIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
     // Hava durumu efektini ayarla
     setWeatherEffect(data.weather[0].icon);
@@ -128,7 +128,7 @@ function displayHourlyForecast(data) {
         hourDiv.className = "hour-item";
         hourDiv.innerHTML = `
             <span>${time}:00</span>
-            <img class="${iconClass}" src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png" alt="weather">
+            <img class="${iconClass}" src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png" alt="weather">
             <h3 class="weather-description">${forecast.weather[0].description}</h3>
             <span>${temp}°</span>
         `;
@@ -167,7 +167,7 @@ function displayDailyForecast(data) {
         
         dayDiv.innerHTML = `
             <span>${day}</span>
-            <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png" 
+            <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png" 
                  alt="weather" 
                  class="${iconClass}">
             <h3 class="weather-description">${forecast.weather[0].description}</h3>
@@ -309,7 +309,7 @@ function createFogEffect(container) {
 async function getAirQuality(lat, lon) {
     try {
         const response = await fetch(
-            `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`
+            `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`
         );
         const data = await response.json();
         console.log(data.list[0].main.aqi);
