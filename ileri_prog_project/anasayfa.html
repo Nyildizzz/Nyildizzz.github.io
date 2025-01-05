@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hava Durumu</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="weather-effects"></div>
+    <div class="container">
+       
+        <!-- Ana Hava Durumu Bölümü -->
+        <section class="weather-section">
+            <div class="search-bar">
+                <input type="text" id="city" placeholder="Şehir ara...">
+            </div>
+
+            <div class="current-weather">
+                <div class="weather-info">
+                    <h1 id="city-name">Istanbul</h1>
+                    <div class="chance-rain" id="rain-chance">32% yağmur ihtimali</div>
+                    <div class="temperature">
+                        <h2 id="temperature">24°</h2>
+                        <img id="main-weather-icon" src="" alt="weather">
+                    </div>
+                </div>
+                <div class="map-button-container">
+                    <div class="map-button-container">
+                        <button class="map-button" onclick="window.location.href='turkey-map.html'">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Haritadan Seç
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Saatlik Tahmin -->
+            <div class="forecast-section">
+                <h3>Saatlik Tahmin</h3>
+                <div class="forecast-container" id="hourly-forecast">
+                    <!-- Saatlik tahminler buraya gelecek -->
+                </div>
+            </div>
+        
+
+            <!-- Hava Koşulları -->
+            <div class="conditions-section">
+                <h3>Hava Koşulları</h3>
+                <div class="conditions-grid">
+                    <div class="condition-item">
+                        <div class="condition-label">Hissedilen</div>
+                        <div class="condition-value" id="real-feel">26°</div>
+                    </div>
+                    <div class="condition-item">
+                        <div class="condition-label">Rüzgar Hızı</div>
+                        <div class="condition-value" id="wind">8 km/h</div>
+                    </div>
+                    <div class="condition-item">
+                        <div class="condition-label">Rüzgar Yönü</div>
+                        <div class="condition-value wind-direction" id="wind-direction">↑ K</div>
+                    </div>
+                    <div class="condition-item">
+                        <div class="condition-label">Nem Oranı</div>
+                        <div class="condition-value" id="humidity">45%</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sağ Sidebar - 7 Günlük Tahmin -->
+        <section class="weekly-forecast">
+            <h3 class="weekly-forecast-title">5 Günlük Tahmin</h3>
+            <div class="weekly-forecast-list" id="daily-forecast">
+                <!-- Günlük tahminler buraya gelecek -->
+            </div>
+        </section>
+
+        <!-- Graph Section -->
+        <div class="graph-section">
+            <div class="graph-grid">
+                <!-- Sıcaklık Grafiği -->
+                <div class="graph-card">
+                    <div class="card-header">
+                        <h3>Sıcaklık Değişimi</h3>
+                    </div>
+                    <div id="temperature-graph" class="graph-container"></div>
+                </div>
+
+                <!-- Nem Grafiği -->
+                <div class="graph-card">
+                    <div class="card-header">
+                        <h3>Nem Değişimi</h3>
+                    </div>
+                    <div id="humidity-chart" class="graph-container"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Grafiklerin olduğu kısımdan sonra -->
+        <aside class="air-quality-sidebar">
+            <div class="air-quality-card">
+                <h3>Hava Kalitesi</h3>
+                <div class="aqi-meter">
+                    <div class="aqi-levels">
+                        <div class="aqi-level" data-level="1">
+                            <span class="level-dot"></span>
+                            <span class="level-text">İyi</span>
+                        </div>
+                        <div class="aqi-level" data-level="2">
+                            <span class="level-dot"></span>
+                            <span class="level-text">Orta</span>
+                        </div>
+                        <div class="aqi-level" data-level="3">
+                            <span class="level-dot"></span>
+                            <span class="level-text">Hassas</span>
+                        </div>
+                        <div class="aqi-level" data-level="4">
+                            <span class="level-dot"></span>
+                            <span class="level-text">Kötü</span>
+                        </div>
+                        <div class="aqi-level" data-level="5">
+                            <span class="level-dot"></span>
+                            <span class="level-text">Tehlikeli</span>
+                        </div>
+                    </div>
+                    <div class="current-aqi">
+                        <span id="aqi-value">--</span>
+                        <span id="aqi-text">Yükleniyor...</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="js/weather.js"></script>
+    <script src="js/graph.js"></script>
+    <script src="js/humidity-chart.js"></script>
+</body>
+</html>
