@@ -312,7 +312,6 @@ async function getAirQuality(lat, lon) {
             `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`
         );
         const data = await response.json();
-        console.log(data.list[0].main.aqi);
         updateAirQualityMeter(data.list[0].main.aqi);
     } catch (error) {
         console.error('Hava kalitesi verileri alınırken hata:', error);
